@@ -25,7 +25,13 @@ const port = process.env.PORT || 5000;
 
 
 // middleware
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+    // origin: 'https://client-cms-flame.vercel.app',
+    origin: 'https://cms-client-83cf1.web.app',
+
+    credentials: true,
+}));
 app.use(express.json());
 app.use(helmet());
 
@@ -39,6 +45,9 @@ const client = new MongoClient(uri, {
         version: ServerApiVersion.v1,
         strict: true,
         deprecationErrors: true,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 5000,
     },
 });
 
