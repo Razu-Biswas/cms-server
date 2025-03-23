@@ -154,7 +154,7 @@ async function run() {
 
                 await transporter.sendMail({
                     // from: "razubiswas114@gmail.com",
-                    to: "razu01.ph@gmail.com",
+                    to: "md@nusaiba.com.bd",
                     subject: "New Contact Us Submission",
                     text: "A new contact form submission has been received.",
                     attachments: [{ filename: "contact.pdf", content: pdfBuffer }]
@@ -240,7 +240,7 @@ async function run() {
                 if (search) {
                     searchQuery = {
                         $or: [
-                            { name: { $regex: search, $options: "i" } },
+                            { fullName: { $regex: search, $options: "i" } },
                             { email: { $regex: search, $options: "i" } },
 
                         ],
